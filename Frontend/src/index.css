@@ -1,4 +1,132 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Zeyada', cursive; */
+  /* font-family: 'Space Mono', monospace; */
+
+  font-family: "Playwrite GB S", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+
+}
+
+body{
+  height: 100%;
+  /* background: linear-gradient(to right, rgba(255, 192, 203, 0.356), rgba(39, 93, 255, 0.242) 65%); */
+  
+}
+
+/* ========= FLEX ========= */
+
+.flexCenter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexBetween{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+/* ========= gradient text ========= */
+
+.font1{
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo {
+  background: linear-gradient(45deg, #8151f0,#ef41f2d2); 
+  -webkit-background-clip: text; /* Clipping the background to the text */
+  -webkit-text-fill-color: transparent; /* Making the text color transparent */
+  background-clip: text;  /* Clipping the background to the text for non-WebKit browsers */
+}
+
+.gradient-text1 {
+  background: linear-gradient(45deg, #ff6f61, #f051b6,#c0a7d9); 
+  -webkit-background-clip: text; /* Clipping the background to the text */
+  -webkit-text-fill-color: transparent; /* Making the text color transparent */
+  background-clip: text;  /* Clipping the background to the text for non-WebKit browsers */
+}
+
+.gradient-text2 {
+  background: linear-gradient(45deg, #1221f6d5, #d438f0ed, #22c2f3); 
+  -webkit-background-clip: text; /* Clipping the background to the text */
+  -webkit-text-fill-color: transparent; /* Making the text color transparent */
+  background-clip: text; /* Clipping the background to the text for non-WebKit browsers */
+}
+
+.home-gradient {
+  background: linear-gradient(to bottom, #ffffff, #c670ff);
+  box-shadow: inset 0px 20px 20px #ffffff;
+}
+
+.navbar-light {
+  background-color: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+.auth-inner {
+  width: 450px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.auth-wrapper .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.custom-control-label {
+  font-weight: 400;
+}
+
+
+
+.forgot-password a {
+  color: #167bff;
+}
+.continue-p{
+  font-size: 12px;
+    color: #b2b2b2;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 

@@ -2,8 +2,8 @@ import jwt from "jsonwebtoken";
 
 export const generateTokenAndSetCookie = (res, userId) => {
 
-  // const tkn = jwt.sing({ paylod }, secret, {options})
-	const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
+  // const tkn = jwt.sing(paylod , secret, {options})
+	const token = jwt.sign({userId}, process.env.JWT_SECRET, {
 		expiresIn: "7d",
 	});
 
