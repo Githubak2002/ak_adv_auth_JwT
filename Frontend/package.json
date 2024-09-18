@@ -13,6 +13,7 @@
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",
+    "jwt_adv_auth": "file:..",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",
