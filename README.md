@@ -9,6 +9,20 @@
   <li>Error Handling</li> 
   <li>Forget Password & Password Reset</li>
 
+<<<<<<< HEAD
+=======
+<ul>FEATURES</ul>
+  <li>JWT</li> 
+  <li>User Authentication</li> 
+  <li>User Authorization</li> 
+  <li>MERN Stack</li> 
+  <li>Tailwind CSS</li> 
+  <li>Zustand</li> 
+  <li>Emails</li>
+  <li>Error Handling</li> 
+  <li>Forget Password & Password Reset</li>
+
+>>>>>>> 0280373a4eec880711475f518ee9b87cf6020412
 
 <h5>To-Do</h5>
   - jest? react testing library
