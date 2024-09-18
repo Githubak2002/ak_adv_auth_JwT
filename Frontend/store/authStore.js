@@ -2,21 +2,22 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
 
-const backend_base_url = "http://localhost:8080/api/auth";
+const backend_base_url = import.meta.env.VITE_BACKEND_URL ||  "http://localhost:8080/api/auth";
 
 // axios setting the headers for cookies
 axios.defaults.withCredentials = true;
 
 export const useAuthStore = create((set) => ({
   user: null,
-  isLoading: false,
-  // isLoading:true,
-  error: null,
   isAuthenticated: false,
+  isUserVerified: false,
   isCheckingAuth: true,
+  
+  isLoading: false,
+  error: null,
 
   popup: false,
-  // popup: true,
+  forgotPassPopup: false,
 
   // ==== signup ====
   signup: async (email, password, name) => {
@@ -33,6 +34,7 @@ export const useAuthStore = create((set) => ({
         isLoading: false,
         error: error.response?.data?.msg || "Error Signing up",
       });
+      toast.error(err.response?.data?.msg || "Error Signing up");
       throw error;
     }
   },
@@ -46,12 +48,13 @@ export const useAuthStore = create((set) => ({
         password,
       });
       set({ user: res.data.user, isAuthenticated: true, isLoading: false });
-    } catch (error) {
+    } catch (err) {
       set({
         isLoading: false,
-        error: error.response?.data?.msg || "Error Logging in",
+        error: err.response?.data?.msg || "Error Logging in",
       });
-      throw error;
+      toast.error(err.response?.data?.msg || "Error Logging in");
+      throw err;
     }
   },
 
@@ -108,7 +111,7 @@ export const useAuthStore = create((set) => ({
     try {
       const res = await axios.post(`${backend_base_url}/verify-email-verification-code`, { code });
       if (res.data.success) {
-        set({ popup: false, isLoading: false, });
+        set({ popup: false, isLoading: false, isUserVerified:true });
         toast.success(res.data.msg || "Email verified!")
       }      
       else {
@@ -121,6 +124,44 @@ export const useAuthStore = create((set) => ({
       throw error;
     }
   },
+
+  // ==== delete user account ====
+  deleteAcount: async() => {
+    set({ isLoading: true, error: null });
+    try {
+      const res = await axios.delete(`${backend_base_url}/delete-account`);
+      if (res.data.success) {
+        set({ isLoading: false, user:null, popup: false, isUserVerified: false, isAuthenticated:false  });
+        toast.success(res.data.msg || "Account deleted");
+      }
+    } catch (error) {
+      set({ isLoading: false, error: error.response?.data?.msg || "Error in Deleteing user" });
+      console.error("Delete user error:", error);
+    }
+  },
+
+
+  // ==== forget password  ====
+  forgetPassword: async(email) => {
+    set({ isLoading: true, error: null, forgotPassPopup:true });
+    try {
+      const res = await axios.post(`${backend_base_url}/forget-password`,{email});
+      if (res.data.success) {
+        set({ isLoading: false, forgotPassPopup:false });
+        toast.success(res.data.msg || "Password reset link sent to your email");
+      }
+      else{
+        set({ isLoading: false, error: res.data.msg || "Error in sending password reset link" });
+        toast.error(res.data.msg || "Error in sending password reset link");
+      }
+    } catch (error) {
+      set({ isLoading: false, forgotPassPopup:false, error: error.response?.data?.msg || "Error in Sending Email" });
+      // console.error("Forget password error:", error);
+      toast.error(error.response?.data?.msg || "Error in sending password reset link");
+      throw error
+    }
+  },
+
 
 
 }));

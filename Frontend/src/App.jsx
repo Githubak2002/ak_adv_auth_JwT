@@ -60,14 +60,18 @@ function App() {
             </ProtectedRoute> 
             } />
 
-          <Route path="/reset-password" element={<ResetPass />} />
-
+          {/* <Route path="/reset-password" element={<ResetPass />} /> */}
+          <Route path="/reset-password/:token" element={<ResetPass />} />
           
         </Routes>
         <Footer />
       </Router>
     
-      <Toaster />
+      <Toaster 
+      toastOptions={{
+        className: ' text-xs sm:text-xs',
+      }}
+      />
     </section>
   )
 }

@@ -10,13 +10,13 @@ const Home = () => {
     <section className="flexCenter min-h-[77vh] flex-col">
       {/* Home PAge */}
       <header className="home-gradient text-white flexCenter flex-col h-screen text-center p-6 gap-y-6 w-full">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to MyApp</h1>
-        <p className="text-lg md:text-xl mb-6 leading-9 sm:leading-10 text-center max-w-[470px]">
+        <h1 className="text-4xl md:text-5xl font-bold pb-5 logo">Welcome to MyApp</h1>
+        <p className="text-lg md:text-xl mb-6 leading-9 sm:leading-10 text-center max-w-[470px] gradient-text3">
           Secure authentication and seamless authorization with the MERN stack and JWT.
         </p>
         <button
           onClick={() => navigate('/signup')}
-          className="bg-transparent border-black border text-blue-500 px-6 py-3 rounded-lg text-lg font-semibold transition-all hover:scale-110"
+          className="bg-transparent border-white border-2 px-6 py-3 rounded-lg text-lg font-semibold transition-all hover:scale-110 gradient-text2"
         >
           Get Started
         </button>

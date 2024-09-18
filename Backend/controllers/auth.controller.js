@@ -4,6 +4,8 @@ import { randomBytes, randomInt } from "crypto";
 import bcryptjs from "bcryptjs";
 import { sendPasswordResetEmail, sendVerificationEmail } from "../utils/sendEmail.js";
 
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173"
+
 // ===== Check User  =====
 export const checkAuthController = async (req,res) => {
 	try {
@@ -187,7 +189,7 @@ export const forgetPassController = async (req, res) => {
     await user.save();
 
     // send email
-    await sendPasswordResetEmail( user.email,`${process.env.CLIENT_URL}/reset-password/${resetToken}`);
+    await sendPasswordResetEmail( user.email,`${CLIENT_URL}/reset-password/${resetToken}`);
     res.status(200).json({
         success: true,
         message: "Password reset email sent!",
@@ -221,4 +223,21 @@ export const resetPassController = async(req,res) => {
 		res.status(400).json({ msg: error.message, success: false });		
 	}
 }
+
+// ===== delete user account =====
+export const deleteUserAccount = async (req, res) => {
+  const id = req.userId;
+  try {
+    const user = await User.findByIdAndDelete(id);
+    if (!user) return res.status(404).json({ success: false, msg: "User Not Found!" });
+    res.clearCookie("token");
+    res.status(200).json({ success: true, msg: "Account Deleted" });    
+  } catch (error) {
+    console.log("Error in Delete User Account → ", error);
+    res.status(400).json({ msg: "Server Error", success: false });
+  }
+}
+
+
+
 

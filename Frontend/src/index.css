@@ -44,7 +44,7 @@ body{
 
 
 
-/* ========= gradient text ========= */
+/* ========= gradient text and bg ========= */
 
 .font1{
   font-family: "Nerko One", cursive;
@@ -61,72 +61,31 @@ body{
 
 .gradient-text1 {
   background: linear-gradient(45deg, #ff6f61, #f051b6,#c0a7d9); 
-  -webkit-background-clip: text; /* Clipping the background to the text */
-  -webkit-text-fill-color: transparent; /* Making the text color transparent */
-  background-clip: text;  /* Clipping the background to the text for non-WebKit browsers */
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text;  
 }
 
 .gradient-text2 {
   background: linear-gradient(45deg, #1221f6d5, #d438f0ed, #22c2f3); 
-  -webkit-background-clip: text; /* Clipping the background to the text */
-  -webkit-text-fill-color: transparent; /* Making the text color transparent */
-  background-clip: text; /* Clipping the background to the text for non-WebKit browsers */
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+}
+
+.gradient-text3 {
+  background: linear-gradient(45deg, #0d50d8d5, #bc57cded, #22c2f3); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
 }
 
 .home-gradient {
   background: linear-gradient(to bottom, #ffffff, #c670ff);
-  box-shadow: inset 0px 20px 20px #ffffff;
-}
-
-.navbar-light {
-  background-color: #ffffff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-}
-
-.auth-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: left;
-}
-
-.auth-inner {
-  width: 450px;
-  margin: auto;
-  background: #ffffff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 40px 55px 45px 55px;
-  border-radius: 15px;
-  transition: all 0.3s;
-}
-
-.auth-wrapper .form-control:focus {
-  border-color: #167bff;
-  box-shadow: none;
-}
-
-.auth-wrapper h3 {
-  text-align: center;
-  margin: 0;
-  line-height: 1;
-  padding-bottom: 20px;
-}
-
-.custom-control-label {
-  font-weight: 400;
+  /* background: linear-gradient(to bottom, #ffffff, #aa48ebcd, #ffffff); */
+  /* box-shadow: inset 0px 20px 20px #ffffff; */
 }
 
 
 
-.forgot-password a {
-  color: #167bff;
-}
-.continue-p{
-  font-size: 12px;
-    color: #b2b2b2;
-    font-weight: 600;
-    margin-top: 1rem;
-    text-align: center;
-}
-
-
+/* ====================================== */

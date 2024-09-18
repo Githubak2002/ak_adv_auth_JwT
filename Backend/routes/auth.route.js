@@ -1,7 +1,7 @@
 import express from "express";
 
 const router = express.Router();
-import { forgetPassController, loginController, logoutController, resetPassController, signupController, checkAuthController, verifyEmailVerificationCodeController, verifyEmailController } from "../controllers/auth.controller.js";
+import { forgetPassController, loginController, logoutController, resetPassController, signupController, checkAuthController, verifyEmailVerificationCodeController, verifyEmailController, deleteUserAccount } from "../controllers/auth.controller.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
 
 
@@ -20,6 +20,9 @@ router.post("/verify-email-verification-code", verifyEmailVerificationCodeContro
 // ==== forget and reset password  ====
 router.post("/forget-password", forgetPassController)
 router.post("/reset-password/:token", resetPassController)
+
+// ==== delete account  ====
+router.delete("/delete-account", verifyToken, deleteUserAccount);
 
 
 

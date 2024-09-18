@@ -1,4 +1,15 @@
 
+<h2>FEATURES</h2>
+  - jwt
+  - user authentication
+  - user authorization
+  - MERN
+  - Tailwind CSS
+  - zustand
+  - Emails
+  - error handling
+  - forget password & password reset
+
 ============== NPM Package Details ============== 
 
   cookie-parser: Middleware to parse cookies
@@ -26,23 +37,23 @@
   
 ============== JWT Methods ============== 
 
-1. jwt.sign(payload, secretOrPrivateKey, [options])
+1. jwt.sign(payload, secretOrPrivateKey, options)
   Purpose: Create a new JWT.
   Parameters:
   payload: The data you want to include in the token (e.g., user ID, roles)
   secretOrPrivateKey: A secret key used to sign the token. This keeps the token secure.
-  [options]: Optional settings like expiration time.
+  options: Optional settings like expiration time.
   Usage: Generate a token that can be sent to clients or stored for later use.
 
   Example:
     const token = jwt.sign({ userId: '1234' }, 'your-secret-key', { expiresIn: '1h' });
 
-2. jwt.verify(token, secretOrPublicKey, [options], callback)
+2. jwt.verify(token, secretOrPublicKey, options, callback)
   Purpose: Check if a JWT is valid and decode it.
   Parameters:
   token: The JWT you want to verify.
   secretOrPublicKey: The key used to sign the token (to verify its authenticity).
-  [options]: Optional settings like expected audience or issuer.
+  options: Optional settings like expected audience or issuer.
   callback: A function that gets called with the result of the verification (or an error).
   Usage: Verify the token’s validity and extract the payload if it’s valid.
 
@@ -55,11 +66,11 @@
     }
     });
 
-3. jwt.decode(token, [options])
+3. jwt.decode(token, options)
   Purpose: Decode a JWT without verifying its signature.
   Parameters:
   token: The JWT you want to decode.
-  [options]: Optional settings (e.g., whether to get the header or just the payload).
+  options: Optional settings (e.g., whether to get the header or just the payload).
   Usage: Extract and view the payload of a token without validating it. Useful for quick checks or debugging.
 
   Example:
