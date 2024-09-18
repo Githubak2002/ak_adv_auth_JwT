@@ -62,6 +62,9 @@ function App() {
 
           {/* <Route path="/reset-password" element={<ResetPass />} /> */}
           <Route path="/reset-password/:token" element={<ResetPass />} />
+
+          {/* ==== all other routes will naviagte to home page (*) ==== */}
+          <Route path="*" element={<Navigate to="/" replace />} />
           
         </Routes>
         <Footer />
