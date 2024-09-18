@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 import { useAuthStore } from '../../store/authStore'
 import VerifyCode from '../Components/VerifyCode';
 import { useNavigate } from 'react-router-dom';
+import DeleteAccountPopup from '../Components/DeleteAccountPopup';
 
 const Profile = () => {
 
   const navigete = useNavigate();
   
-  const {user, popup, verifyEmail, isUserVerified, deleteAcount} = useAuthStore();
-
+  const {user, popup, verifyEmail, isUserVerified, deleteAcount, deleteAccPopup} = useAuthStore();
 
   const formatDate = (date) => {
     const options = {  
@@ -23,9 +23,13 @@ const Profile = () => {
     return new Date(date).toLocaleDateString(undefined, options);
   };
 
-  const deleteHandler = () => {
-    deleteAcount();
-    navigete('/');
+  // const deleteHandler = () => {
+  //   deleteAcount();
+  //   navigete('/');
+  // }
+
+  const deleteHandlerPopup = () => {
+    useAuthStore.setState({ deleteAccPopup: true });
   }
 
   
@@ -45,13 +49,15 @@ const Profile = () => {
       <>
         <h2>Full Name : {user.name}</h2>
         <h2>Email : {user.email}</h2>
-        <h2>Verified : {isUserVerified ? "Yes" : "No" }</h2>
+        <h2>Verified : {user.isVerified ? "Yes" : "No" }</h2>
+        {/* <h2>Verified : {isUserVerified ? "Yes" : "No" }</h2> */}
       </>
       }
 
 
       {
-        !isUserVerified &&
+        !user.isVerified &&
+        // !isUserVerified &&
         <button className='text-blue-500' 
         onClick={() => verifyEmail(user?.email)}
         
@@ -65,11 +71,15 @@ const Profile = () => {
 
       <div className='flex justify-end w-full'>
 
-      <button onClick={deleteHandler} className='p-2 hover:scale-110 text-red-500 transition-all rounded-lg mb-3'>Delete Account</button>
+      <button onClick={deleteHandlerPopup} className='p-2 hover:scale-110 text-red-500 transition-all rounded-lg mb-3'>Delete Account</button>
       </div>
       </main>
 
       { popup && <VerifyCode /> }
+
+
+
+      {deleteAccPopup && <DeleteAccountPopup />}
 
 
 

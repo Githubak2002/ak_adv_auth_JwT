@@ -42,7 +42,7 @@ const Login = () => {
         <div className="flex flex-col gap-y-3 mt-4">
           <input
             type="email"
-            className="border p-2 rounded-lg h-9 bg-slate-100 focus:bg-transparent"
+            className="border p-2 rounded-lg h-9 bg-slate-50 focus:bg-transparent"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -53,7 +53,7 @@ const Login = () => {
         <div className="flex flex-col gap-y-3 mt-4">
           <input
             type="password"
-            className="border p-2 rounded-lg h-9 bg-slate-100 focus:bg-transparent"
+            className="border p-2 rounded-lg h-9 bg-slate-50 focus:bg-transparent"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

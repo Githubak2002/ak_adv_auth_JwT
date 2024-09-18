@@ -8,7 +8,7 @@ import authRoutes from "./routes/auth.route.js";
 
 dotenv.config();            // to get access to .env
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 const app = express();
 
 const PORT = process.env.BACKEND_PORT || 8080;

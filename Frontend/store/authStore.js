@@ -18,6 +18,7 @@ export const useAuthStore = create((set) => ({
 
   popup: false,
   forgotPassPopup: false,
+  deleteAccPopup: false,
 
   // ==== signup ====
   signup: async (email, password, name) => {
