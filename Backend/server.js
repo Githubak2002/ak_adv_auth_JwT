@@ -7,6 +7,8 @@ import { connectDB } from "./connectDB.js";
 import authRoutes from "./routes/auth.route.js";
 
 dotenv.config();            // to get access to .env
+
+const __dirname = path.resolve();
 const app = express();
 
 const PORT = process.env.BACKEND_PORT || 8080;
@@ -14,6 +16,14 @@ const PORT = process.env.BACKEND_PORT || 8080;
 app.use(cors({ origin: ["http://localhost:5173"] , credentials: true }));
 app.use(express.json());    // parse incoming req with JSON payloads
 app.use(cookieParser());    // parse incoming cookies
+
+
+
+// ==== static folder ====
+// app.use(express.static(path.join(__dirname,'/client/dist')));
+// app.get('*',(req,res) => {
+//   res.sendFile(path.join(__dirname,"client", "dist", "index.html"));
+// })
 
 
 app.get("/",(req,res)=>{

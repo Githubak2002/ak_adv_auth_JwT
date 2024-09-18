@@ -86,6 +86,12 @@ body{
   /* box-shadow: inset 0px 20px 20px #ffffff; */
 }
 
+.feature-shadow{
+  box-shadow: 0px 0px 30px rgba(65, 54, 217, 0.478);
+  /* overflow-hidden */
+  overflow: hidden;
+}
+
 
 
 /* ====================================== */

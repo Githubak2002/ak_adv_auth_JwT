@@ -1,14 +1,14 @@
+<ul>FEATURES</ul>
+  <li>JWT</li> 
+  <li>User Authentication</li> 
+  <li>User Authorization</li> 
+  <li>MERN Stack</li> 
+  <li>Tailwind CSS</li> 
+  <li>Zustand</li> 
+  <li>Emails</li>
+  <li>Error Handling</li> 
+  <li>Forget Password & Password Reset</li>
 
-<h2>FEATURES</h2>
-  - jwt
-  - user authentication
-  - user authorization
-  - MERN
-  - Tailwind CSS
-  - zustand
-  - Emails
-  - error handling
-  - forget password & password reset
 
 <h5>To-Do</h5>
   - jest? react testing library

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 
 import toast from 'react-hot-toast';
+// import { BorderBeam2 } from '../Components/magicui/BorderBeam';
 
 const Signup = () => {
 
@@ -30,14 +31,15 @@ const Signup = () => {
 
   return (
     <section className="flexCenter px-4 min-h-[74vh]">
-    <main className="sm:min-w-[340px] min-w-full shadow-2xl py-6 px-10 border-2 border-gray-300 mt-[5vh] rounded-xl font-bold text-sm ">
+    <main className="sm:min-w-[340px] min-w-full shadow-2xl py-6 px-10 border-2 border-gray-300 mt-[5vh] rounded-xl font-bold text-sm relative overflow-hidden">
+      {/* <BorderBeam2 /> */}
       <form onSubmit={handleSignUp}>
         <h3 className="text-center text-2xl pb-5 font-semibold  gradient-text2">Sign up</h3>
 
         <div className="flex flex-col gap-y-3">
           <input
             type="text"
-            className="border p-2 rounded-lg h-9 bg-slate-100 focus:bg-transparent"
+            className="border p-2 rounded-lg h-9 bg-slate-50 focus:bg-transparent"
             placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -48,7 +50,7 @@ const Signup = () => {
         <div className="flex flex-col gap-y-3 mt-4 h-9">
           <input
             type="email"
-            className="border p-2 rounded-lg h-9 bg-slate-100 focus:bg-transparent"
+            className="border p-2 rounded-lg h-9 bg-slate-50 focus:bg-transparent"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -59,7 +61,7 @@ const Signup = () => {
         <div className="flex flex-col gap-y-3 mt-4">
           <input
             type="password"
-            className="border p-2 rounded-lg h-9 bg-slate-100 focus:bg-transparent"
+            className="border p-2 rounded-lg h-9 bg-slate-50 focus:bg-transparent"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

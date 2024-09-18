@@ -41,7 +41,7 @@ const ResetPass = () => {
   };
 
   return (
-    <section className="flex items-center justify-center h-screen bg-gray-100">
+    <section className="flexCenter h-[74vh] bg-gray-100">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-md w-full max-w-sm"
@@ -49,14 +49,19 @@ const ResetPass = () => {
         <h2 className="text-2xl font-semibold mb-4">Reset Password</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         
+        {/* <div className="flex flex-col gap-y-3 mt-4"> */}
         <input
           type="password"
           placeholder="New Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          // className="border p-2 rounded-lg h-9 bg-slate-100 focus:bg-transparent"
           className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
+        {/* </div> */}
+
+
         <input
           type="password"
           placeholder="Confirm Password"
