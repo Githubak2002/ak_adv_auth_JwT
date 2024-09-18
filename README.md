@@ -10,6 +10,10 @@
   - error handling
   - forget password & password reset
 
+<h5>To-Do</h5>
+  - jest? react testing library
+  - delete account confirmation/popup btn
+
 ============== NPM Package Details ============== 
 
   cookie-parser: Middleware to parse cookies
