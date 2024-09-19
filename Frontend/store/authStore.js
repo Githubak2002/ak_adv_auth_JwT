@@ -31,13 +31,14 @@ export const useAuthStore = create((set) => ({
         name,
       });
       set({ user: res.data.user, isAuthenticated: true, isLoading: false });
+      toast.success("User created successfully!"); 
     } catch (error) {
       set({
         isLoading: false,
         error: error.response?.data?.msg || "Error Signing up",
       });
-      toast.error(err.response?.data?.msg || "Error Signing up");
-      throw error;
+      toast.error(error.response?.data?.msg || "Error Signing up"); 
+      throw error; 
     }
   },
 
@@ -141,7 +142,6 @@ export const useAuthStore = create((set) => ({
       console.error("Delete user error:", error);
     }
   },
-
 
   // ==== forget password  ====
   forgetPassword: async(email) => {

@@ -5,7 +5,9 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
-const backend_base_url = import.meta.env.VITE_BACKEND_URL || "http://localhost:8080/api/auth";
+// const backend_base_url = import.meta.env.VITE_BACKEND_URL || "http://localhost:8080/api/auth";
+const backend_base_url = import.meta.env.MODE === "development" ? "http://localhost:8080/api/auth" : "/api/auth";
+
 
 const ResetPass = () => {
   const { token } = useParams(); 
@@ -24,7 +26,6 @@ const ResetPass = () => {
       setError("Passwords do not match");
       return;
     }
-
     try {
       const res = await axios.post(`${backend_base_url}/reset-password/${token}`, { password }); 
       if (res.data.success) {
