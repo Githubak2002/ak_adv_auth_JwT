@@ -2,7 +2,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
 
-const backend_base_url = import.meta.env.VITE_BACKEND_URL ||  "http://localhost:8080/api/auth";
+// const backend_base_url = import.meta.env.VITE_BACKEND_URL ||  "http://localhost:8080/api/auth";
+const backend_base_url = import.meta.env.MODE === "development" ? "http://localhost:8080/api/auth" : "/api/auth";
 
 // axios setting the headers for cookies
 axios.defaults.withCredentials = true;
