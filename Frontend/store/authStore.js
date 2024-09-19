@@ -128,7 +128,7 @@ export const useAuthStore = create((set) => ({
   },
 
   // ==== delete user account ====
-  deleteAcount: async() => {
+  deleteAccount: async() => {
     set({ isLoading: true, error: null });
     try {
       const res = await axios.delete(`${backend_base_url}/delete-account`);
