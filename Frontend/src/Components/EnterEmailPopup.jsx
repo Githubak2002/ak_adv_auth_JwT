@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../store/authStore";
-
-const backend_base_url =
-  import.meta.env.VITE_BACKEND_URL || "http://localhost:8080";
 
 const EnterEmailPoupup = () => {
 
   const [email, setEmail] = useState(null);
   const {forgetPassword, isLoading} = useAuthStore()
 
-  const sendRequestHandler = async (e) => {
+  const forgetPassHandler = async (e) => {
     e.preventDefault();
-    forgetPassword(email);
+    await forgetPassword(email);
     // useAuthStore.setState({ forgotPassPopup : false} );
     // console.log("btn clicked! Email is - ",email);
   };
@@ -24,10 +21,8 @@ const EnterEmailPoupup = () => {
 
 
   return (
-    <section className="">
-      <main className="fixed inset-0 flexCenter bg-black bg-opacity-50 backdrop-blur-sm px-4">
-        <form
-          onSubmit={sendRequestHandler}
+      <section className="fixed inset-0 flexCenter bg-black bg-opacity-50 backdrop-blur-sm px-4">
+        <main
           className="w-full max-w-sm bg-white p-6 border border-gray-300 rounded-lg shadow-lg"
         >
           <h2 className="sm:text-2xl text-xl font-semibold mb-4">
@@ -41,7 +36,7 @@ const EnterEmailPoupup = () => {
           />
           <div className="flexCenter gap-x-5">
             <button
-              type="submit"
+              onClick={forgetPassHandler}
               className={`text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 ${isLoading ? "bg-blue-300" : "bg-blue-500"} ` }
               disabled={isLoading} 
             >
@@ -58,9 +53,8 @@ const EnterEmailPoupup = () => {
 
           </div>
 
-        </form>
-      </main>
-    </section>
+        </main>
+      </section>
   );
 };
 
