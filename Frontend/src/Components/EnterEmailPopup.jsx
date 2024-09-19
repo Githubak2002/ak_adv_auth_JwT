@@ -46,7 +46,7 @@ const EnterEmailPoupup = () => {
 
             <button
             onClick={cancelHandler}
-            className="py-2 px-4 mb-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-slate-500"
+            className="py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-slate-500"
           >
             Cancel
           </button>
