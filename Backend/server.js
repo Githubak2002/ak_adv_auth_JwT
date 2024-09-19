@@ -18,6 +18,8 @@ app.use(express.json());    // parse incoming req with JSON payloads
 app.use(cookieParser());    // parse incoming cookies
 
 
+app.use("/api/auth",authRoutes);
+
 
 // ==== static folder ====
 if (process.env.NODE_ENV === "production") {
@@ -27,14 +29,6 @@ if (process.env.NODE_ENV === "production") {
 		res.sendFile(path.resolve(__dirname, "Frontend", "dist", "index.html"));
 	});
 }
-
-
-app.get("/",(req,res)=>{
-  res.send("Hello World");
-})
-
-
-app.use("/api/auth",authRoutes);
 
 // ==== app.listen() ====
 
