@@ -10,6 +10,7 @@ const navLinkCss = "lg:hover:scale-110 transition-all lg:hover:font-bold";
 const Navbar = () => {
 
   const { logout } = useAuthStore();
+  // const isAuthenticated = useAuthStore();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   // useEffect(() => {

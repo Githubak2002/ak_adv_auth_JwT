@@ -6,9 +6,9 @@ const DeleteAccountPopup = () => {
   const { deleteAccount, isLoading } = useAuthStore(); // Ensure the function is correctly named
   const navigate = useNavigate(); 
 
-  const deleteAccountHandler = (e) => {
+  const deleteAccountHandler = async (e) => {
     e.preventDefault();
-    deleteAccount(); 
+    await deleteAccount(); 
     useAuthStore.setState({ deleteAccPopup: false });
     navigate('/'); 
   };
