@@ -5,9 +5,9 @@
   "main": "backed/server.js",
   "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon backend/server.js",
-    "start": "cross-env NODE_ENV=production node backend/server.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "cross-env NODE_ENV=development nodemon Backend/server.js",
+    "start": "cross-env NODE_ENV=production node Backend/server.js",
+    "build": "npm install && npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "keywords": [],
   "author": "",
