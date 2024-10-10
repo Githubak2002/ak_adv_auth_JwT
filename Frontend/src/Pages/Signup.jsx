@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 
-import toast from 'react-hot-toast';
 // import { BorderBeam2 } from '../Components/magicui/BorderBeam';
 
 const Signup = () => {
@@ -19,12 +18,10 @@ const Signup = () => {
     e.preventDefault();
     try {
       await signup(email,password,name);
-      toast.success("Sign Up successfull!");
       navigate("/profile");
       // const updatedUser = useAuthStore.getState().user;  // immediate access to the store
       // console.log("user → ",updatedUser);
     } catch (err) {
-      // toast.error(error);
       // console.log("error → ",err);
     }
   };

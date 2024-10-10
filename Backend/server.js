@@ -20,6 +20,10 @@ app.use(cookieParser());    // parse incoming cookies
 
 app.use("/api/auth",authRoutes);
 
+app.use("/", (req,res) => {
+  res.send("hello from server")
+})
+
 
 // ==== static folder ====
 if (process.env.NODE_ENV === "production") {

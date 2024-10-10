@@ -56,13 +56,14 @@ const Profile = () => {
 
 
       {
-        !user.isVerified &&
-        // !isUserVerified &&
+        // !user.isVerified &&
+        !isUserVerified &&
         <button className='text-blue-500' 
         onClick={() => verifyEmail(user?.email)}
         
         >Verify now →</button>
       }
+
       <h2>Last Login :  
       {
         user.lastLogin ? <span> {formatDate(user.lastLogin)}</span> : "You just signed up!"
