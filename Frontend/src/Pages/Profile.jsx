@@ -49,7 +49,7 @@ const Profile = () => {
       <>
         <h2>Full Name : {user.name}</h2>
         <h2>Email : {user.email}</h2>
-        <h2>Verified : {user.isVerified ? "Yes" : "No" }</h2>
+        <h2>Verified : {isUserVerified ? "Yes" : "No" }</h2>
         {/* <h2>Verified : {isUserVerified ? "Yes" : "No" }</h2> */}
       </>
       }
