@@ -4,6 +4,8 @@ import VerifyCode from '../Components/VerifyCode';
 import { useNavigate } from 'react-router-dom';
 import DeleteAccountPopup from '../Components/DeleteAccountPopup';
 
+import { IoCheckmarkDone } from "react-icons/io5";
+
 const Profile = () => {
 
   const navigete = useNavigate();
@@ -34,14 +36,14 @@ const Profile = () => {
 
   
   // useEffect(() => {
-    // console.log("User → ",user);
-    // console.log("isAuthenticated → ",isAuthenticated);
+  //   console.log("User → ",user);
+  //   console.log("isAuthenticated → ",isAuthenticated);
   // },[user])
 
   return (
     <section className='flexCenter min-h-[77vh] flex-col  px-3'>
 
-      <main className='flex sm:px-6 px-4 py-4 flex-col gap-y-5 items-start border-black border rounded-xl mx-auto sm:min-w-[360px]'>
+      <main className='flex sm:px-6 px-4 py-4 flex-col gap-y-5 items-start  rounded-xl mx-auto sm:min-w-[360px] customshadow'>
 
       <h2 className='mx-auto text-center font-bold text-xl mb-6 gradient-text1 pt-2'>Profile</h2>
 
@@ -49,15 +51,15 @@ const Profile = () => {
       <>
         <h2>Full Name : {user.name}</h2>
         <h2>Email : {user.email}</h2>
-        <h2>Verified : {isUserVerified ? "Yes" : "No" }</h2>
-        {/* <h2>Verified : {isUserVerified ? "Yes" : "No" }</h2> */}
+        {/* <h2>Verified : {user.isVerified ? "Yes" : "No" }</h2> */}
+        <h2 className='flexCenter gap-x-2'>Verified : {isUserVerified ? "Yes" : "No" }  <span className=' text-blue-500 text-xl'> {isUserVerified && <IoCheckmarkDone />}</span> </h2>
       </>
       }
 
 
       {
-        // !user.isVerified &&
         !isUserVerified &&
+        // !user.isVerified &&
         <button className='text-blue-500' 
         onClick={() => verifyEmail(user?.email)}
         
@@ -72,7 +74,7 @@ const Profile = () => {
 
       <div className='flex justify-end w-full'>
 
-      <button onClick={deleteHandlerPopup} className='p-2 hover:scale-110 text-red-500 transition-all rounded-lg mb-3'>Delete Account</button>
+      <button onClick={deleteHandlerPopup} className='p-2 hover:scale-110 text-red-500 transition-all mb-3 '>Delete Account</button>
       </div>
       </main>
 

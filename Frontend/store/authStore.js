@@ -50,7 +50,8 @@ export const useAuthStore = create((set) => ({
         email,
         password,
       });
-      set({ user: res.data.user, isAuthenticated: true, isLoading: false });
+      set({ user: res.data.user, isAuthenticated: true, isLoading: false,  isUserVerified: res.data.user.isVerified });
+
     } catch (err) {
       set({
         isLoading: false,
@@ -82,6 +83,7 @@ export const useAuthStore = create((set) => ({
         user: res.data.user,
         isAuthenticated: true,
         isCheckingAuth: false,
+        isUserVerified: res.data.user.isVerified
       });
     } catch (error) {
       set({ error: null, isCheckingAuth: false, isAuthenticated: false });

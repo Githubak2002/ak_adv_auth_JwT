@@ -5,6 +5,9 @@ import { useNavigate, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuthStore } from "../../store/authStore";
 
+import { IoIosLogOut } from "react-icons/io";
+
+
 const navLinkCss = "lg:hover:scale-110 transition-all lg:hover:font-bold";
 
 const Navbar = () => {
@@ -57,8 +60,11 @@ const Navbar = () => {
             <NavLink to="/profile" className={navLinkCss}>
               Profile
             </NavLink>
-            <button onClick={handleLogout} className={navLinkCss}>
-              Logout
+            <button onClick={handleLogout} className={`${navLinkCss} flexCenter gap-x-1`}>
+              <span>
+                <IoIosLogOut className="text-xl" />
+                {/* Logout */}
+              </span>
             </button>
           </div>
         ) : (
